@@ -1,0 +1,64 @@
+@import "tailwindcss";
+
+@theme {
+  --font-sans: ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial, "Apple Color Emoji", "Segoe UI Emoji";
+  --font-display: "Poppins", var(--font-sans);
+
+  --color-brand-50: #f1f5ff;
+  --color-brand-100: #e2ebff;
+  --color-brand-200: #c7d6ff;
+  --color-brand-300: #a4b9ff;
+  --color-brand-400: #7b94ff;
+  --color-brand-500: #5b76ff;
+  --color-brand-600: #4358f2;
+  --color-brand-700: #3343c7;
+  --color-brand-800: #2b38a1;
+  --color-brand-900: #242f82;
+
+  --color-bg: hsl(230 20% 6%);        /* near-black blue */
+  --color-surface: hsl(230 22% 12%);
+  --color-elev-1: hsl(230 22% 16%);
+  --color-text: hsl(220 30% 96%);
+  --color-muted: hsl(220 15% 70%);
+  --color-accent: var(--color-brand-500);
+
+  --radius-sm: 0.375rem; /* 6px */
+  --radius-md: 0.75rem;  /* 12px */
+  --radius-lg: 1rem;     /* 16px */
+  --shadow-soft: 0 8px 24px rgb(0 0 0 / 0.2);
+}
+
+@layer base {
+  html, body, #root {
+    height: 100%;
+  }
+
+  html {
+    @apply antialiased;
+    font-family: var(--font-sans);
+  }
+
+  body {
+    @apply bg-[--color-bg] text-[--color-text];
+  }
+
+  /* Headings use display font and tight tracking */
+  h1, h2, h3, h4, h5, h6 {
+    font-family: var(--font-display);
+    @apply tracking-tight text-balance;
+  }
+
+  a {
+    @apply text-[--color-accent] hover:opacity-90 underline-offset-4 hover:underline;
+  }
+
+  /* Card utility (via @layer utilities for class) */
+}
+
+@layer utilities {
+  .card {
+    @apply bg-[--color-surface] rounded-[--radius-lg] shadow-[--shadow-soft] p-6 border border-white/5;
+  }
+}
+
+
