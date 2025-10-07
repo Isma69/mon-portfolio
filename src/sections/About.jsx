@@ -2,7 +2,7 @@ import Container from "../components/Container.jsx";
 
 export default function About() {
   return (
-    <section id="about" className="py-16">
+    <section id="about" className="py-20 section-sep section-alt">
       <Container>
         <div className="grid md:grid-cols-3 gap-8">
           <div className="md:col-span-1">

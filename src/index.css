@@ -15,11 +15,12 @@
   --color-brand-800: #2b38a1;
   --color-brand-900: #242f82;
 
-  --color-bg: hsl(230 20% 6%);        /* near-black blue */
-  --color-surface: hsl(230 22% 12%);
-  --color-elev-1: hsl(230 22% 16%);
-  --color-text: hsl(220 30% 96%);
-  --color-muted: hsl(220 15% 70%);
+  /* Balanced light palette with blue/gray accents (more color presence) */
+  --color-bg: hsl(210 24% 98%);
+  --color-surface: hsl(0 0% 100%);
+  --color-elev-1: hsl(215 32% 97%); /* light blue-gray */
+  --color-text: hsl(222 47% 11%);
+  --color-muted: hsl(215 16% 42%);
   --color-accent: var(--color-brand-500);
   --color-accent-2: #22d3ee; /* cyan */
   --color-success: #22c55e;
@@ -61,21 +62,74 @@
 }
 
 @layer utilities {
+  /* Page background with soft radial/gradient accents */
+  .page-bg {
+    background:
+      radial-gradient(900px 420px at 85% -10%, color-mix(in oklab, var(--color-brand-200) 24%, transparent), transparent),
+      radial-gradient(800px 420px at -10% 5%, color-mix(in oklab, var(--color-accent-2) 18%, transparent), transparent),
+      linear-gradient(180deg, hsl(210 26% 99%) 0%, hsl(210 24% 98%) 35%, hsl(210 22% 97%) 100%);
+  }
+
   .card {
-    @apply bg-[--color-surface] rounded-[--radius-lg] shadow-[--shadow-soft] p-6 border border-white/5;
+    @apply bg-[--color-surface] rounded-[--radius-lg] shadow-[--shadow-soft] p-6 border border-black/5;
   }
   .btn {
     @apply inline-flex items-center justify-center rounded-[--radius-md] px-4 py-2 font-medium transition-colors;
   }
   .btn-primary {
-    @apply btn bg-[--color-accent] text-white shadow-[--shadow-soft] hover:opacity-90;
+    @apply inline-flex items-center justify-center rounded-[--radius-md] px-4 py-2 font-medium text-white;
+    background-image: linear-gradient(90deg, var(--color-brand-600), var(--color-brand-800));
+    transition: filter .2s ease;
+  }
+  .btn-primary:hover {
+    filter: brightness(1.05);
   }
   .btn-ghost {
-    @apply btn border border-white/10 hover:bg-white/5;
+    @apply inline-flex items-center justify-center rounded-[--radius-md] px-4 py-2 font-medium transition-colors border border-black/10 hover:bg-black/5;
   }
   .chip {
-    @apply text-xs px-2 py-1 rounded-[--radius-sm] bg-white/5 border border-white/10;
+    @apply text-xs px-2 py-1 rounded-[--radius-sm] bg-black/[.05] border border-black/10;
   }
+
+  /* Section separators */
+  .section-sep {
+    @apply relative;
+  }
+  .section-sep::after {
+    content: "";
+    position: absolute;
+    left: 0; right: 0; bottom: -1rem;
+    height: 1px;
+    background: linear-gradient(90deg, transparent, rgb(0 0 0 / .08), transparent);
+  }
+
+  /* Alternate section background to increase contrast between blocks */
+  .section-alt {
+    @apply bg-[--color-elev-1] border-y border-black/5;
+  }
+
+  /* Decorative elements */
+  .navbar-accent-bar {
+    background-image: linear-gradient(90deg, var(--color-brand-400), var(--color-accent-2));
+    height: 2px;
+    width: 100%;
+  }
+
+  .hero-blob {
+    position: absolute;
+    inset: -80px -40px auto auto;
+    width: 420px;
+    height: 420px;
+    background: radial-gradient(closest-side, color-mix(in oklab, var(--color-brand-300) 45%, transparent), transparent 70%);
+    filter: blur(20px);
+    opacity: .5;
+    pointer-events: none;
+  }
+
+  .heading-accent {
+    color: var(--color-brand-700);
+  }
+
 }
 
 

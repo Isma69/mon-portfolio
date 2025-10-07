@@ -3,7 +3,7 @@ import projects from "../data/projects.js";
 
 export default function Projects() {
   return (
-    <section id="projects" className="py-16">
+    <section id="projects" className="py-20 section-sep section-alt">
       <Container>
         <div className="flex items-end justify-between gap-4">
           <div>
@@ -15,7 +15,7 @@ export default function Projects() {
         <div className="mt-8 grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
           {projects.map((p) => (
             <article key={p.slug} className="card">
-              <div className="h-40 rounded-[--radius-md] bg-gradient-to-tr from-[--color-elev-1] to-[--color-brand-800]/40 mb-4 flex items-center justify-center text-[--color-muted]">
+              <div className="h-40 rounded-[--radius-md] bg-gradient-to-tr from-[--color-elev-1] to-[--color-brand-300]/50 mb-4 flex items-center justify-center text-[--color-muted]">
                 {p.preview ?? "Aperçu"}
               </div>
               <h3 className="text-lg font-semibold">{p.title}</h3>
