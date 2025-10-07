@@ -21,11 +21,16 @@
   --color-text: hsl(220 30% 96%);
   --color-muted: hsl(220 15% 70%);
   --color-accent: var(--color-brand-500);
+  --color-accent-2: #22d3ee; /* cyan */
+  --color-success: #22c55e;
+  --color-warning: #f59e0b;
+  --color-danger: #ef4444;
 
   --radius-sm: 0.375rem; /* 6px */
   --radius-md: 0.75rem;  /* 12px */
   --radius-lg: 1rem;     /* 16px */
   --shadow-soft: 0 8px 24px rgb(0 0 0 / 0.2);
+  --shadow-ring: 0 0 0 2px rgb(255 255 255 / .06);
 }
 
 @layer base {
@@ -58,6 +63,18 @@
 @layer utilities {
   .card {
     @apply bg-[--color-surface] rounded-[--radius-lg] shadow-[--shadow-soft] p-6 border border-white/5;
+  }
+  .btn {
+    @apply inline-flex items-center justify-center rounded-[--radius-md] px-4 py-2 font-medium transition-colors;
+  }
+  .btn-primary {
+    @apply btn bg-[--color-accent] text-white shadow-[--shadow-soft] hover:opacity-90;
+  }
+  .btn-ghost {
+    @apply btn border border-white/10 hover:bg-white/5;
+  }
+  .chip {
+    @apply text-xs px-2 py-1 rounded-[--radius-sm] bg-white/5 border border-white/10;
   }
 }
 

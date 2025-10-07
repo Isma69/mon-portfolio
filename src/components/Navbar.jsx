@@ -8,6 +8,9 @@ export default function Navbar() {
           <a href="#projects" className="hover:text-[--color-text]">Projets</a>
           <a href="#contact" className="hover:text-[--color-text]">Contact</a>
         </nav>
+        <div className="hidden md:block">
+          <a href="#contact" className="btn-primary">Travaillons ensemble</a>
+        </div>
       </div>
     </header>
   );
